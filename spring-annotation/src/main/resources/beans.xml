@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+       <!--导入属性文件-->
+       <context:property-placeholder location="classpath:person.properties"/>
+
+       <!-- 包扫描、只要标注了@Controller、@Service、@Repository，@Component扫描起作用 -->
+       <context:component-scan base-package="annotation"/>
+
+        <!--创建bean-->
+        <bean id="person" class="annotation.bean.Person" scope="prototype">
+            <property name="name" value="james"/>
+            <property name="age" value="34"/>
+        </bean>
+
+        <bean id="benCar" class="annotation.bean.BenCar" init-method="init" destroy-method="destory"/>
+
+</beans>
