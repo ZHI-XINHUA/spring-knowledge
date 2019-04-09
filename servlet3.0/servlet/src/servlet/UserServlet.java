@@ -11,6 +11,6 @@ public class UserServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("执行UserServlet>>>>>>doGet()");
-        super.doGet(req, resp);
+        resp.getWriter().println("UserServlet...");
     }
 }
